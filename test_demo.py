@@ -9,8 +9,6 @@ class TestGeminiVariations(unittest.TestCase):
     def test_short_question(self):
         """Test with a short AI question"""
         # Temporarily modify the input in demo module
-        original_generate = demo.generate
-        
         def modified_generate():
             client = demo.genai.Client(
                 api_key=demo.os.environ.get("GEMINI_API_KEY"),
@@ -45,6 +43,15 @@ class TestGeminiVariations(unittest.TestCase):
             # Get output
             output = captured_output.getvalue()
             
+            # Restore stdout before printing results
+            sys.stdout = original_stdout
+            
+            # Print the actual response
+            print(f"\n[SHORT QUESTION TEST] Generated output:")
+            print("-" * 50)
+            print(output)
+            print("-" * 50)
+            
             # Assertions
             self.assertIsInstance(output, str)
             self.assertGreater(len(output), 0)
@@ -52,8 +59,6 @@ class TestGeminiVariations(unittest.TestCase):
             ai_keywords = ['artificial intelligence', 'AI', 'machine learning', 'intelligence', 'computer']
             contains_ai_content = any(keyword.lower() in output.lower() for keyword in ai_keywords)
             self.assertTrue(contains_ai_content, "Response should contain AI-related content")
-            
-            print(f"\n[SHORT QUESTION TEST] Generated output: {output}")
             
         finally:
             sys.stdout = original_stdout
@@ -95,6 +100,15 @@ class TestGeminiVariations(unittest.TestCase):
             # Get output
             output = captured_output.getvalue()
             
+            # Restore stdout before printing results
+            sys.stdout = original_stdout
+            
+            # Print the actual response
+            print(f"\n[CODE GENERATION TEST] Generated output:")
+            print("-" * 50)
+            print(output)
+            print("-" * 50)
+            
             # Assertions
             self.assertIsInstance(output, str)
             self.assertGreater(len(output), 0)
@@ -102,8 +116,6 @@ class TestGeminiVariations(unittest.TestCase):
             python_keywords = ['print', 'hello', 'world', 'python', 'def', '(', ')']
             contains_python_code = any(keyword.lower() in output.lower() for keyword in python_keywords)
             self.assertTrue(contains_python_code, "Response should contain Python code elements")
-            
-            print(f"\n[CODE GENERATION TEST] Generated output: {output}")
             
         finally:
             sys.stdout = original_stdout
@@ -145,6 +157,15 @@ class TestGeminiVariations(unittest.TestCase):
             # Get output
             output = captured_output.getvalue()
             
+            # Restore stdout before printing results
+            sys.stdout = original_stdout
+            
+            # Print the actual response
+            print(f"\n[CREATIVE TASK TEST] Generated output:")
+            print("-" * 50)
+            print(output)
+            print("-" * 50)
+            
             # Assertions
             self.assertIsInstance(output, str)
             self.assertGreater(len(output), 0)
@@ -157,8 +178,6 @@ class TestGeminiVariations(unittest.TestCase):
             # Should contain either haiku structure or coding-related content
             self.assertTrue(contains_haiku_content or contains_coding_content, 
                           "Response should contain haiku or coding-related content")
-            
-            print(f"\n[CREATIVE TASK TEST] Generated output: {output}")
             
         finally:
             sys.stdout = original_stdout
