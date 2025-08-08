@@ -5,7 +5,7 @@ A Python script for interacting with Google's Gemini AI model using streaming in
 ## Setup
 
 ### Prerequisites
-- Python 3.7 or higher
+- Python 3.8 or higher
 - A Google AI API key
 
 ### Installation
@@ -21,61 +21,81 @@ cd gemini-inference
 pip install -r requirements.txt
 ```
 
-3. Set up your API key as an environment variable:
+3. Set up your API key:
+- Using .env (recommended for local dev):
 ```bash
+# .env
+GEMINI_API_KEY=your_api_key_here
+```
+- Or set an environment variable:
+```bash
+# macOS/Linux
 export GEMINI_API_KEY="your_api_key_here"
+# Windows (PowerShell)
+$env:GEMINI_API_KEY="your_api_key_here"
 ```
 
 ## Usage
 
-### Running the Demo
+### CLI (recommended)
+
+You can now pass the prompt directly on the command line:
 
 ```bash
-python demo.py
+python demo.py --prompt "What is AI?"
 ```
 
-**Note**: Before running, make sure to replace `INSERT_INPUT_HERE` in the demo.py file with your actual input text.
+Optional arguments:
+- `--model` / `-m` to choose a model (default: `gemini-2.0-flash`)
+- `--no-stream-print` to suppress live streaming output (still returns the full text)
 
-### Running Tests
+Examples:
+```bash
+python demo.py --prompt "Write hello world in Python" -m gemini-2.0-flash
+python demo.py --prompt "Write a haiku about coding" --no-stream-print
+```
 
-Run the unit tests to verify everything is working correctly:
+### From Python code
+
+```python
+from demo import generate
+
+text = generate("Explain quantum computing in simple terms", print_stream=False)
+print(text)
+```
+
+## Running Tests
+
+The tests make real API calls with different prompts (no mocking).
 
 ```bash
-python -m pytest test_demo.py -v
+python -m unittest test_demo.py -v
 ```
 
-Or using unittest:
-
-```bash
-python test_demo.py
-```
+Tests included:
+- Short question: "What is AI?"
+- Code generation: "Write hello world in Python"
+- Creative task: "Write a haiku about coding"
 
 ## Files
 
-- `demo.py` - Main inference script using Gemini 2.0 Flash model
-- `test_demo.py` - Comprehensive unit tests for the demo script
+- `demo.py` - Reusable generate(prompt) function with CLI support
+- `test_demo.py` - Simple tests that call generate() directly
+- `.env` - Local environment variables (do not commit secrets)
 - `requirements.txt` - Python dependencies
 - `README.md` - This file
 
 ## Features
 
 - Streaming response from Gemini AI
-- Environment variable configuration for API key
-- Comprehensive unit tests with mocking
-- Error handling and edge case testing
+- Reusable API: `generate(prompt, model="gemini-2.0-flash", print_stream=True) -> str`
+- CLI usage with argparse
+- Real-call tests without mocks
 
 ## API Key Security
 
-**Important**: Never commit your actual API key to version control. Always use environment variables or secure configuration management.
-
-## Testing
-
-The test suite includes:
-- Unit tests with mocked API calls
-- Tests for different response scenarios
-- Environment variable handling tests
-- Content structure validation
-- Integration test framework (optional)
+- Never commit secrets to version control. This repo currently contains a .env file for convenience; treat this repo as private.
+- In production, inject `GEMINI_API_KEY` via secure environment management.
 
 ## Contributing
 
