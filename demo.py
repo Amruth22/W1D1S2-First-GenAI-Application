@@ -1,10 +1,17 @@
 # To run this code you need to install the following dependencies:
-# pip install google-genai
+# pip install google-genai python-dotenv
 
 import base64
 import os
 from google import genai
 from google.genai import types
+
+# Load environment variables from .env file
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    print("python-dotenv not installed. Using system environment variables only.")
 
 
 def generate():
