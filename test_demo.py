@@ -1,43 +1,65 @@
 import unittest
 import sys
 from io import StringIO
-from unittest.mock import patch
 import demo
+import os
 
 
 class TestGeminiVariations(unittest.TestCase):
 
     def _run_test_with_input(self, test_input, test_name):
         """Helper method to run demo.generate() with different inputs"""
-        # Capture output
-        captured_output = StringIO()
-        original_stdout = sys.stdout
-        sys.stdout = captured_output
+        # Read current demo.py content
+        with open('demo.py', 'r') as f:
+            original_content = f.read()
         
         try:
-            # Temporarily patch the input text in the demo module
-            with patch.object(demo.types.Part, 'from_text') as mock_from_text:
-                mock_from_text.return_value = demo.types.Part.from_text(text=test_input)
-                
-                # Run the existing demo.generate() function
+            # Create modified content with new input
+            modified_content = original_content.replace(
+                'types.Part.from_text(text="""INSERT_INPUT_HERE"""),',
+                f'types.Part.from_text(text="""{test_input}"""),'
+            )
+            
+            # Write modified content
+            with open('demo.py', 'w') as f:
+                f.write(modified_content)
+            
+            # Reload the demo module to pick up changes
+            import importlib
+            importlib.reload(demo)
+            
+            # Capture output
+            captured_output = StringIO()
+            original_stdout = sys.stdout
+            sys.stdout = captured_output
+            
+            try:
+                # Run the demo function
                 demo.generate()
-            
-            # Get output
-            output = captured_output.getvalue()
-            
-            # Restore stdout before printing results
-            sys.stdout = original_stdout
-            
-            # Print the actual response
-            print(f"\n[{test_name}] Generated output:")
-            print("-" * 50)
-            print(output)
-            print("-" * 50)
-            
-            return output
-            
+                
+                # Get output
+                output = captured_output.getvalue()
+                
+                # Restore stdout before printing results
+                sys.stdout = original_stdout
+                
+                # Print the actual response
+                print(f"\n[{test_name}] Generated output:")
+                print("-" * 50)
+                print(output)
+                print("-" * 50)
+                
+                return output
+                
+            finally:
+                sys.stdout = original_stdout
+                
         finally:
-            sys.stdout = original_stdout
+            # Always restore original demo.py content
+            with open('demo.py', 'w') as f:
+                f.write(original_content)
+            # Reload demo module to restore original state
+            importlib.reload(demo)
 
     def test_short_question(self):
         """Test with a short AI question"""
