@@ -128,7 +128,7 @@ print(response)
 Our test suite demonstrates real-world API testing without mocks:
 
 ```bash
-python -m unittest test_demo.py -v
+python -m unittest unit_test.py -v
 ```
 
 **Test Cases Include:**
@@ -153,7 +153,7 @@ test_creative_task ... ok            # ✅ Wrote a coding haiku
 ```
 gemini-inference/
 ├── 📄 demo.py              # Main module with generate() function
-├── 🧪 test_demo.py         # Comprehensive test suite
+├── 🧪 unit_test.py         # Comprehensive test suite
 ├── 📋 requirements.txt     # Python dependencies
 ├── 🔒 .env                 # API key storage (keep secret!)
 └── 📖 README.md           # This documentation
@@ -167,7 +167,7 @@ gemini-inference/
 - CLI interface: Command-line tool for easy interaction
 - Error handling: Graceful degradation when dependencies missing
 
-**`test_demo.py`** - Quality assurance:
+**`unit_test.py`** - Quality assurance:
 - Real API testing: No mocks, actual AI responses
 - Helper functions: Reduce code duplication
 - Error handling: Graceful test failures with useful messages
@@ -254,7 +254,7 @@ We welcome contributions from students and developers! Here's how:
 1. **Fork** the repository
 2. **Create** a feature branch: `git checkout -b feature/amazing-feature`
 3. **Make** your changes with clear, educational comments
-4. **Test** your changes: `python -m unittest test_demo.py -v`
+4. **Test** your changes: `python -m unittest unit_test.py -v`
 5. **Commit** with descriptive messages: `git commit -m "Add conversation history feature"`
 6. **Push** to your fork: `git push origin feature/amazing-feature`
 7. **Submit** a Pull Request with detailed description
@@ -287,7 +287,7 @@ python demo.py --prompt "Hi" --no-stream-print
 **🧪 Test failures:**
 ```bash
 # Run individual test
-python -m unittest test_demo.TestGeminiVariations.test_api_key_configuration -v
+python -m unittest unit_test.TestGeminiVariations.test_api_key_configuration -v
 ```
 
 ---
