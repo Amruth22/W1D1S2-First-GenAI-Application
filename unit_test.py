@@ -13,7 +13,11 @@ class TestGeminiVariations(unittest.TestCase):
         self.assertFalse(api_key.startswith("your_api_key"), "GEMINI_API_KEY appears to be placeholder text")
 
     def setUp(self):
-        """Check API key availability before running tests"""
+        """Check API key availability before running API tests (except configuration test)"""
+        # Don't skip the API configuration test - let it fail properly
+        if hasattr(self, '_testMethodName') and self._testMethodName == 'test_api_key_configuration':
+            return
+            
         if not os.environ.get("GEMINI_API_KEY"):
             self.skipTest("GEMINI_API_KEY not set")
 
