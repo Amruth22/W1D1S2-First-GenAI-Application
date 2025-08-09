@@ -59,8 +59,8 @@ if __name__ == "__main__":
         "--prompt",
         "-p",
         type=str,
-        required=True,
-        help="Prompt to send to the Gemini model",
+        default="What is AI?",
+        help="Prompt to send to the Gemini model (default: 'What is AI?')",
     )
     parser.add_argument(
         "--model",
