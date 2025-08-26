@@ -1,4 +1,4 @@
-# MCQ Questions - Gemini AI Inference Toolkit
+# MCQ Questions - Generative AI Fundamentals
 
 ## Instructions
 Choose the best answer for each question. Each question has only one correct answer.
@@ -6,191 +6,191 @@ Choose the best answer for each question. Each question has only one correct ans
 ---
 
 ### Question 1
-What is the primary purpose of this Gemini AI Inference Toolkit project?
+What does "Generative AI" primarily refer to?
 
-A) To create a machine learning model from scratch  
-B) To demonstrate integration of Google's Gemini AI model into Python applications  
-C) To build a web scraping tool  
-D) To develop a database management system  
+A) AI systems that can only classify existing data  
+B) AI systems that can create new content like text, images, or code  
+C) AI systems used only for data analysis  
+D) AI systems that work exclusively with numerical data  
 
 **Answer: B**
 
 ---
 
 ### Question 2
-Which Python version is required as the minimum for this project?
+Which of the following is a popular type of model architecture used in modern generative AI?
 
-A) Python 3.6+  
-B) Python 3.7+  
-C) Python 3.8+  
-D) Python 3.9+  
+A) Decision Trees  
+B) Linear Regression  
+C) Transformer  
+D) K-Means Clustering  
 
 **Answer: C**
 
 ---
 
 ### Question 3
-What are the two main dependencies that need to be installed for this project?
+What is a "prompt" in the context of generative AI?
 
-A) requests and json  
-B) google-genai and python-dotenv  
-C) flask and sqlalchemy  
-D) numpy and pandas  
+A) A type of neural network layer  
+B) An input text or instruction given to an AI model to generate a response  
+C) A method for training AI models  
+D) A way to measure AI model performance  
 
 **Answer: B**
 
 ---
 
 ### Question 4
-What is the recommended method for storing the API key in this project?
+Which company developed the GPT (Generative Pre-trained Transformer) series of models?
 
-A) Hardcoding it directly in the Python file  
-B) Using a .env file  
-C) Storing it in a database  
-D) Writing it in the README file  
+A) Google  
+B) Microsoft  
+C) OpenAI  
+D) Meta  
 
-**Answer: B**
+**Answer: C**
 
 ---
 
 ### Question 5
-What is the default model used in the generate() function?
+What is "hallucination" in the context of AI language models?
 
-A) gemini-1.0-pro  
-B) gemini-1.5-flash  
-C) gemini-2.0-flash  
-D) gemini-pro-vision  
+A) The model's ability to generate creative content  
+B) When the model generates false or nonsensical information  
+C) The model's training process  
+D) The model's ability to understand context  
 
-**Answer: C**
+**Answer: B**
 
 ---
 
 ### Question 6
-What does the `print_stream` parameter control in the generate() function?
+Which of the following is NOT typically considered a generative AI application?
 
-A) Whether to save the output to a file  
-B) Whether to print streamed chunks to stdout as they arrive  
-C) Whether to use streaming at all  
-D) Whether to format the output as JSON  
-
-**Answer: B**
-
----
-
-### Question 7
-Which command-line argument is used to specify a custom prompt?
-
-A) --input or -i  
-B) --question or -q  
-C) --prompt or -p  
-D) --text or -t  
+A) Text generation  
+B) Image creation  
+C) Data classification  
+D) Code generation  
 
 **Answer: C**
 
 ---
 
-### Question 8
-What is the default prompt used when running the demo without any arguments?
+### Question 7
+What does "fine-tuning" mean in the context of AI models?
 
-A) "Hello, AI!"  
-B) "What is AI?"  
-C) "Generate text"  
-D) "Test prompt"  
+A) Adjusting the model's hardware requirements  
+B) Training a pre-trained model on specific data for a particular task  
+C) Reducing the model's size  
+D) Increasing the model's processing speed  
 
 **Answer: B**
 
 ---
 
-### Question 9
-Which library is used for handling command-line arguments in this project?
+### Question 8
+Which of the following is a key advantage of using APIs for AI integration?
 
-A) click  
-B) argparse  
-C) sys.argv  
-D) optparse  
+A) It requires building models from scratch  
+B) It eliminates the need for internet connectivity  
+C) It allows access to powerful models without managing infrastructure  
+D) It only works with small datasets  
+
+**Answer: C**
+
+---
+
+### Question 9
+What is "token" in the context of language models?
+
+A) A security key for API access  
+B) A unit of text that the model processes (word, subword, or character)  
+C) A type of neural network  
+D) A method for model evaluation  
 
 **Answer: B**
 
 ---
 
 ### Question 10
-What does the `--no-stream-print` argument do?
+Which of the following best describes "zero-shot learning" in AI?
 
-A) Disables the streaming functionality completely  
-B) Prevents printing of streamed chunks while generating  
-C) Stops the API calls  
-D) Changes the output format to JSON  
+A) Training a model with zero data points  
+B) A model's ability to perform tasks it wasn't explicitly trained for  
+C) Training a model in zero seconds  
+D) A model that produces zero outputs  
 
 **Answer: B**
 
 ---
 
 ### Question 11
-How should you properly set the GEMINI_API_KEY environment variable on macOS/Linux?
+What is the primary purpose of "prompt engineering"?
 
-A) set GEMINI_API_KEY="your_key"  
-B) $env:GEMINI_API_KEY="your_key"  
-C) export GEMINI_API_KEY="your_key"  
-D) setenv GEMINI_API_KEY="your_key"  
+A) Building new AI models  
+B) Designing hardware for AI systems  
+C) Crafting effective inputs to get desired outputs from AI models  
+D) Creating databases for AI training  
 
 **Answer: C**
 
 ---
 
 ### Question 12
-What type of testing approach does this project use?
+Which of the following is a common ethical concern with generative AI?
 
-A) Mock testing with fake API responses  
-B) Unit testing without external dependencies  
-C) Real API testing against actual AI responses  
-D) Integration testing with database  
+A) Models consuming too much electricity  
+B) Potential for generating misleading or harmful content  
+C) Models being too slow  
+D) Models requiring too much storage space  
 
-**Answer: C**
+**Answer: B**
 
 ---
 
 ### Question 13
-Which of the following is NOT mentioned as a key learning objective of this project?
+What does "multimodal AI" refer to?
 
-A) API Integration  
-B) Streaming Data handling  
-C) Database design  
-D) Security Practices  
+A) AI that runs on multiple computers  
+B) AI that can process and generate different types of data (text, images, audio)  
+C) AI with multiple layers  
+D) AI that uses multiple algorithms  
 
-**Answer: C**
+**Answer: B**
 
 ---
 
 ### Question 14
-What happens if the python-dotenv package is not installed?
+In the context of AI model deployment, what is "streaming"?
 
-A) The program crashes with an error  
-B) It falls back to using system environment variables only  
-C) It prompts the user to install the package  
-D) It uses hardcoded default values  
+A) Playing audio or video content  
+B) Sending model outputs in real-time chunks as they are generated  
+C) Transferring large datasets  
+D) Broadcasting AI models to multiple users  
 
 **Answer: B**
 
 ---
 
 ### Question 15
-According to the project structure, which file contains the comprehensive test suite?
+Which of the following is a key consideration when integrating AI APIs into applications?
 
-A) test.py  
-B) tests.py  
-C) unit_test.py  
-D) demo_test.py  
+A) The color scheme of the user interface  
+B) Rate limits and API key security  
+C) The programming language used for the database  
+D) The size of the application logo  
 
-**Answer: C**
+**Answer: B**
 
 ---
 
 ## Answer Key Summary
-1. B  2. C  3. B  4. B  5. C  
-6. B  7. C  8. B  9. B  10. B  
-11. C  12. C  13. C  14. B  15. C
+1. B  2. C  3. B  4. C  5. B  
+6. C  7. B  8. C  9. B  10. B  
+11. C  12. B  13. B  14. B  15. B
 
 ---
 
 **Total Questions: 15**  
-**Topics Covered:** API Integration, Python Dependencies, Environment Configuration, CLI Usage, Streaming Responses, Testing Strategies, Security Practices, and Project Architecture
+**Topics Covered:** Generative AI Fundamentals, Model Architectures, Prompt Engineering, AI Applications, Ethical Considerations, API Integration, and Technical Concepts
